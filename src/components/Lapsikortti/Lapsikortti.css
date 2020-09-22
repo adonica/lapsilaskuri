@@ -1,0 +1,13 @@
+.lapsikortti {
+    margin: 0.7em;
+    padding: 2em;
+    display: flex;  
+    justify-content: space-evenly;
+    border: 2px solid red;
+    border-radius: 5px;
+    width: 10em;
+  }
+  
+  .lapsikortti__rivi {
+    display: flex;
+  }
