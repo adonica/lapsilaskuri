@@ -1,19 +1,20 @@
 import React from 'react';
-import './Lapsikortti.css';
+import './Lapsikortti.css'
+import LapsiButton from '../buttons';
 
 
 function Lapsikortti(props) {
-  return (
-    <div className='lapsikortti__rivi'>
-      <div className='lapsikortti'>              
-        <div className='lapsikortti__nimi'>
-          Aleksi
-          </div>  
-      </div>
-      <div className='lapsikortti'>      
-        <div className='lapsikortti__nimi'>Aleksi</div>                      
-      </div> 
-    </div>
+
+   return (    
+      <div className='lapsikortti'>  
+         <div className='lapsikortti__nappi'>
+        <LapsiButton secondary >
+         <div className='lapsikortti__nimi'>
+          {props.data.nimi}
+          </div>
+        </LapsiButton> 
+        </div>
+         </div>   
   );    
 }
 

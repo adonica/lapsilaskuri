@@ -1,31 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component }  from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
-
+import testdata from './testdata';
 import Header from './components/Header/Header';
-import Lapsikortti from './components/Lapsikortti/Lapsikortti';
+import Items from './components/Items/Items';
 import Menu from './components/Menu/Menu';
-import Content from './components/Content/Content'
-
+import Settings from './components/Settings/Settings';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: testdata
+    }
+  }
+
   render() {
     return (
-      <div className='App'>
-        <Header />
-        <Content> 
-          <Lapsikortti />
-          <Lapsikortti />        
-          <Lapsikortti />
-          <Lapsikortti />
-          <Lapsikortti /> 
-          <Lapsikortti />
-          <Lapsikortti />        
-          <Lapsikortti />
-          <Lapsikortti />
-          <Lapsikortti /> 
-        </Content>          
-        <Menu />        
-      </div>
+      <Router>  {/*reitittää sovelluksen sisällä tietoja */}
+        <div className='App'>
+          <Header />
+          <Route path='/' exact render={() => <Items data={this.state.data} /> } />  {/*reittipolku etusivulle tuo Itemsin tiedot*/}
+          <Route path='/settings' component={Settings} /> 
+          <Menu />  
+        </div>
+      </Router> 
     );
   }
 }

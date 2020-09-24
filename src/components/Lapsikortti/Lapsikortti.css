@@ -1,13 +1,18 @@
 .lapsikortti {
-    margin: 0.7em;
-    padding: 2em;
-    display: flex;  
-    justify-content: space-evenly;
-    border: 2px solid red;
-    border-radius: 5px;
-    width: 10em;
-  }
+  width: 10em;
+  height: 8em; 
+  margin: 0.7em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;   
+  justify-content: space-between;  
+  column-count: 2;
+}  
+
+.lapsikortti__nimi {
+  font-size: 2em;
+  font-family: 'Delius', cursive, sans-serif; 
+}
+   
   
-  .lapsikortti__rivi {
-    display: flex;
-  }
+  
