@@ -1,9 +1,7 @@
 import React from 'react';
 import './Items.css';
 import Content from '../Content/Content';
-import Lapsikortti from '../Lapsikortti/Lapsikortti';
-
-  
+import Lapsikortti from '../Lapsikortti/Lapsikortti';  
 
 function Items(props) {
 
@@ -12,11 +10,11 @@ function Items(props) {
       <Lapsikortti data={child} />
     );
   }
-);
+ );
   return (
     <div className='items'>
      <Content> 
-       {kids} 
+       {kids}
      </Content>        
     </div>
   );  

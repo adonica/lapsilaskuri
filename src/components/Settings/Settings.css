@@ -1,0 +1,9 @@
+h1 {
+    padding: 1em;
+    display: flex;    
+    justify-content: center;    
+}
+
+.settings__button {
+    margin-top: 3em;     
+}

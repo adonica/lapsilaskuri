@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+
 .button {
     background-color: #ccc;
     color: #000;
@@ -12,7 +14,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0.8;    
+    opacity: 0.8;  
+    font-family: 'Delius', cursive, sans-serif; 
 }
 
 .button:active {
@@ -25,12 +28,12 @@
 }
 
 .button--primary {
-    background-color: #0285ee;
+    background-color: #0ebe0e;
     color: #fff;
 }
 
 .button--primary:active {
-    background-color: #65b4ff;
+    background-color: #298804;
 }
 
 .button--secondary {
@@ -50,15 +53,13 @@
 }
 
 .button--floating {
-    position: sticky;
-    float: right;
-    bottom: 2rem;
-    right: 1rem;
-    border-radius: 50%;
-    font-size: 2.5rem;
-    width: 1.5em;
-    height: 1.5em;
+    position: absolute;      
+    font-size: 1.4rem;
+    width: 10em;
+    height: 2em;
 }
-.button__lapsipri {
-    background-color: green;
+
+.lapsikortti__nappi {
+    background-color: #999;
+    padding:0.2em;
 }

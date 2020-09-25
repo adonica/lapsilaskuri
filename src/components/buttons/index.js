@@ -20,22 +20,10 @@ const Button = ({ className = "", primary, secondary, ...props}) => {
 
 const FloatingButton = ({className = "", ...props}) => {
    return (
-     <Button
+     <Button 
         className={classNames(["button--floating", className])}
      {...props} />
    );
 }
 
-const LapsiButton = ({className = "", primary, secondary, ...props}) => {
-  return (
-     <Button
-        className={classNames([
-          "button__lapsi",
-         className,
-         primary ? "button__lapsipri": "",
-         secondary ? "button__lapsisec": ""])}
-        {...props} />
-    );
-}
-
-export { Button as default, Button, FloatingButton, LapsiButton };
+export { Button as default, Button, FloatingButton  };

@@ -11,16 +11,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: testdata
+      data: testdata,
+         
     }
-  }
 
-  render() {
+  }
+  
+  onColorChange 
+
+  render() {   
+  
     return (
       <Router>  {/*reitittää sovelluksen sisällä tietoja */}
         <div className='App'>
           <Header />
-          <Route path='/' exact render={() => <Items data={this.state.data} /> } />  {/*reittipolku etusivulle tuo Itemsin tiedot*/}
+          <Route path='/' exact render={() => <Items data={this.state.data} onColorChange={this.state.color} /> } /> 
           <Route path='/settings' component={Settings} /> 
           <Menu />  
         </div>

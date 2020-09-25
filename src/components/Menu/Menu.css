@@ -5,4 +5,5 @@
     max-height: 3em;
     min-height: 3em;
     align-items: center;  
-  }
+    position: relative;
+}
