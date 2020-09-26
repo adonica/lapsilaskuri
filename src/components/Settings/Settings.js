@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
 import './Settings.css';
 import Content from '../Content/Content';
 import { FloatingButton }from '../buttons';
@@ -7,9 +9,9 @@ function Settings(props) {
   return (
     <Content>
       <div className='settings'>
-        <h1>Asetukset</h1>
+        <h2>Asetukset</h2>
           <div className='settings__button'>
-            <FloatingButton>Lisää uusi lapsi</FloatingButton>
+            <Link to ='add'><FloatingButton>Lisää uusi lapsi</FloatingButton></Link>
           </div>
       </div>
     </Content>

@@ -1,0 +1,44 @@
+.itemform {
+    display: flex;
+    flex-direction: column;    
+}
+
+.itemform__row {
+    display:flex;
+}
+
+.itemform__row > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    margin: 0.5em 0.3em;
+    flex: 1 1 auto;
+}
+
+.itemform input {
+    padding: 0.5em;
+    border: 1px solid #999;
+    border-radius: 0.3em;
+    font-size: 1.2em;
+    font-family: 'Delius', cursive, sans-serif;
+    outline: none;    
+    margin-left: 5.5em; 
+}
+
+.itemform label {
+    font-size: 1em;
+    margin-bottom: 0.2em;
+    margin-left: 6.4em;
+}
+
+.itemform__buttonper {
+    padding:0.5em;
+    padding-left: 5em;
+}
+
+.itemform__buttonlis {
+    display: flex;
+    justify-content: space-between;
+
+}
+

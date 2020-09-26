@@ -9,4 +9,4 @@ function Content(props) {
     );
 }
 
-export default Content;
+export default Content ;

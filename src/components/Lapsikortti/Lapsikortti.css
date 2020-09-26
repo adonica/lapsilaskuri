@@ -6,14 +6,18 @@
   display: flex;
   flex-direction: column ; 
   background-color: rgb(243, 166, 22); 
-  border-radius: 25%;    
-}
+  border-radius: 25%;  
+}    
 
 .lapsikortti__nimi {
   font-size: 2em;
   font-family: 'Delius', cursive, sans-serif; 
   padding: 0.5em;   
 }
+
+
+
+
 
 
 
