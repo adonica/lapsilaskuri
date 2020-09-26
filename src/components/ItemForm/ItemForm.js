@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { v4 as uuidv4 } from 'uuid';
 
 import Button from '../buttons';
 
@@ -8,29 +9,29 @@ import './ItemForm.css';
 class ItemForm extends React.Component {
 
   constructor(props) {
-      super(props);
-      this.state = {
-          data: {
-              nimi: ''
-            }
-      };
+    super(props);
+    this.state = {
+        data: {
+            nimi: ''
+          }
+    };
 
-      this.handleInputChange = this.handleInputChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleCancel= this.handleCancel.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel= this.handleCancel.bind(this);
   }
 
   handleInputChange(event) {
-      const target = event.target;
-      const value = target.type === 'checkbox' ? target.checked : target.value;
-      const name = target.name;
-  
-      this.setState({
-        data: {
-            ...this.state.data,
-            [name]: value
-          }
-      });
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      data: {
+          ...this.state.data,
+          [name]: value
+        }
+    });
   }
 
   handleCancel(event) {
@@ -39,10 +40,11 @@ class ItemForm extends React.Component {
   }
 
   handleSubmit(event) {
-      event.preventDefault();
-      console.log('Lähetä lomake');
-      this.props.onFormSubmit(this.state.data);
-      this.props.history.push('/');
+    event.preventDefault();
+    let data = this.state.data;
+    data.id =  uuidv4();
+    this.props.onFormSubmit(this.state.data);
+    this.props.history.push('/');
 
   }
 
@@ -52,7 +54,7 @@ class ItemForm extends React.Component {
         <div className='itemform'>
           <div className='itemform__row'>
             <div>
-              <label for='nimi'>Nimi</label>
+              <label htmlFor='nimi'>Nimi</label>
               <input type='text' name='nimi' value={this.state.data.nimi} onChange={this.handleInputChange}/> 
             </div> 
           </div>

@@ -7,7 +7,7 @@ function Items(props) {
 
   let kids = props.data.map(child => {
     return (
-      <Lapsikortti data={child} />
+      <Lapsikortti data={child} key={child.id}/>
     );
   }
  );
