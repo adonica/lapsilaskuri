@@ -10,10 +10,11 @@ class ItemForm extends React.Component {
 
   constructor(props) {
     super(props);
+    const data = props.data ? props.data: {
+      nimi: ''
+    }
     this.state = {
-        data: {
-            nimi: ''
-          }
+        data: data
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -42,7 +43,7 @@ class ItemForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     let data = this.state.data;
-    data.id =  uuidv4();
+    data.id = data.id ? data.id : uuidv4(); 
     this.props.onFormSubmit(this.state.data);
     this.props.history.push('/');
 
@@ -64,7 +65,7 @@ class ItemForm extends React.Component {
               <Button onClick={this.handleCancel}>PERUUTA</Button>
             </div>
             <div className='itemform__buttonlis'>
-              <Button type='submit' primary>LISÄÄ</Button> 
+              <Button type='submit' primary>{this.state.data.id ? "TALLENNA" : "LISÄÄ"} </Button> 
             </div>
           </div>
         </div>  

@@ -1,18 +1,40 @@
 .lapsikortti {
   width: 8em;
   height: 6em; 
-  margin: 0.7em;
-  padding: 2em;
+  margin: 0.5em;
+  padding: 2em 0 2em 2em;
   display: flex;
-  flex-direction: column ; 
+  /*flex-direction: column ; */
   background-color: rgb(243, 166, 22); 
   border-radius: 25%;  
+
 }    
 
-.lapsikortti__nimi {
-  font-size: 2em;
+.lapsikortti__nappi {
+  font-size: 1.5em;
   font-family: 'Delius', cursive, sans-serif; 
   padding: 0.5em;   
+}
+
+.lapsikortti__linkki {
+  display: none;  
+  justify-content: center; 
+  align-items: center;
+  max-width: 1em;  
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.lapsikortti > div {
+  flex: 1 1 auto;
+  padding: 1em;
+}
+
+.lapsikortti:hover .lapsikortti__linkki {
+  display: flex;
+}
+
+.lapsikortti__linkki a {
+  color: #000;
 }
 
 
