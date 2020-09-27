@@ -15,7 +15,7 @@ function EditItem(props) {
       <div className='edititem'>
         <h2>Muokkaa nimeä</h2>      
 
-         <ItemForm onFormSubmit={props.onFormSubmit} data={itemData} /> 
+         <ItemForm onFormSubmit={props.onFormSubmit} data={itemData} onDeleteItem={props.onDeleteItem} /> 
          
        </div>
     </Content>

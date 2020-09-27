@@ -16,6 +16,7 @@ class App extends Component {
       data: testdata
    }
    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+   this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
   
   handleFormSubmit(newdata) {
@@ -42,6 +43,14 @@ class App extends Component {
     });
   }
 
+  handleDeleteItem(id) {
+    let storeddata = this.state.data.slice();
+    storeddata = storeddata.filter(item => item.id !== id);
+    this.setState({
+      data: storeddata
+    });
+  }
+
   render() {   
   
     return (
@@ -53,6 +62,7 @@ class App extends Component {
           <Route path='/add' render={() => <AddItem onFormSubmit={this.handleFormSubmit}/>} />
           <Route path='/edit/:id' render={(props) => <EditItem data={this.state.data} 
                                                                onFormSubmit={this.handleFormSubmit}
+                                                               onDeleteItem={this.handleDeleteItem}
                                                                {...props} />} />
           <Menu />  
         </div>
