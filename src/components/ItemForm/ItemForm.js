@@ -77,7 +77,7 @@ class ItemForm extends React.Component {
 
          {this.props.onDeleteItem ? 
          <div className='itemform__row'>
-            <div>
+            <div className='itemform__buttonpoi'>
               <Button onClick={this.handleDeleteItem}>POISTA</Button>
             </div>
             <div></div>

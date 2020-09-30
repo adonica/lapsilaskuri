@@ -11,7 +11,7 @@ function Settings(props) {
       <div className='settings'>
         <h2>Asetukset</h2>
           <div className='settings__button'>
-            <Link to ='add'><FloatingButton>Lisää uusi lapsi</FloatingButton></Link>
+            <Link to ='add'><FloatingButton primary >Lisää uusi lapsi</FloatingButton></Link>
           </div>
       </div>
     </Content>

@@ -39,6 +39,9 @@
 .itemform__buttonlis {
     display: flex;
     justify-content: space-between;
+}
 
+.itemform__buttonpoi {
+    padding-left: 7em;
 }
 

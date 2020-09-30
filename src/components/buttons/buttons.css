@@ -8,19 +8,19 @@
     padding: 0.7em;
     margin: 0.5em;
     border-radius: 0.2em;
-    box-shadow:rgba(0,0,0,0.5) 0px 2px 2px;
+    box-shadow:rgba(0,0,0,0.5) 2px 4px 2px;
     font-weight: bold;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0.8;  
-    font-family: 'Delius', cursive, sans-serif; 
+    font-family: 'Delius', cursive, sans-serif;     
 }
 
 .button:active {
     box-shadow: rgba(0,0,0,0.5) 0px 2px 5px;
-    background-color: #999;
+    background-color: rgb(182, 179, 179);
 }
 
 .button:hover {
@@ -59,7 +59,3 @@
     height: 2em;
 }
 
-.lapsikortti__nappi {
-    background-color: #999;
-    padding:0.2em;
-}
