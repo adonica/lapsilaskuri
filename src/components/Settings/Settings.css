@@ -1,15 +1,38 @@
-.settings {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 1em;
-}
 
 .settings h2 {
-    padding: 2em; 
-    margin-left: 2em;
-    display: flex; 
-    align-items: center;  
+    padding-top: 1em; 
+    margin-left: 4em;
+    align-items: center;
+    padding: 1em;
+}    
+
+.settings__userdata img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin: 0.5em;
 }
+
+.settings__profile {
+    display: flex;
+    align-items: center;
+}
+
+.settings__userdata {
+    display: flex;
+    align-items: center;
+}
+
+.settings__asetukset {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    padding: 4em;
+}
+
+.settings__button {
+    margin-right: 9em;
+    padding-top: 0.5em;    
+}
+
 

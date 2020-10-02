@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withRouter } from "react-router";
+/*import { withRouter } from "react-router";*/
 
 import ArrowRight from '@material-ui/icons/ArrowRight';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import './Lapsikortti.css'
 import Button from '../buttons';
 
-const grey = '#E5E8E8';
+const orange = '#F1C40F';
 const green = '#0ebe0e';
 
 class Lapsikortti extends React.Component {  
@@ -16,14 +16,16 @@ class Lapsikortti extends React.Component {
       super(props);
 
     this.state = {
-      color: grey
+      color: orange
     };
     
     this.changeColor = this.changeColor.bind(this);
     }    
 
-    changeColor() {      
-      const newColor = this.state.color === grey ? green : grey;
+    changeColor(event) {  
+      event.preventDefault();   
+      const newColor = this.state.color === orange ? green : orange;           
+      
       this.setState({
         color: newColor
       });
@@ -32,7 +34,7 @@ class Lapsikortti extends React.Component {
  render() {       
 
    return (        
-    
+      
       <div className='lapsikortti' style={{backgroundColor: this.state.color}}> 
         <div>                                         
         <Button 
@@ -48,4 +50,5 @@ class Lapsikortti extends React.Component {
    );          
   }    
 }
-export default withRouter(Lapsikortti);
+
+export default /*withRouter*/Lapsikortti;
