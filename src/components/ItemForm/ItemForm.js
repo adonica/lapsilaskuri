@@ -79,10 +79,9 @@ class ItemForm extends React.Component {
          <div className='itemform__row'>
             <div className='itemform__buttonpoi'>
               <Button onClick={this.handleDeleteItem}>POISTA</Button>
-            </div>
-            <div></div>
-          </div> : ""}
-        </div>  
+            </div><br></br>            
+         </div> : ""}
+        </div>         
       </form>         
     );
   }

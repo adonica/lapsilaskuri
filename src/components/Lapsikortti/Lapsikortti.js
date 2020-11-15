@@ -29,7 +29,6 @@ class Lapsikortti extends React.Component {
 
 render() {
    return (        
-      
       <div className='lapsikortti' style={{backgroundColor: this.props.data.status?"green":"orange"}} > 
         <div>                                         
         <Button     

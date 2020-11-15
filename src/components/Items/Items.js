@@ -17,10 +17,12 @@ function Items(props) {
   );
 
   return (
-    <div className='items'>     
+    <div className='items'>         
       <Content>  
-        {kids}
-      </Content>  
+        <div className= 'content__childlist'>
+          {kids}
+        </div> 
+      </Content>        
     </div>     
   );  
 }

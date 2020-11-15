@@ -9,7 +9,9 @@ function AddItem(props) {
     <Content>
       <div className='additem'>
         <h2>Lisää uusi lapsi</h2> 
-         <ItemForm onFormSubmit={props.onFormSubmit}/>  
+         <div className='additem__lisaa'>
+           <ItemForm onFormSubmit={props.onFormSubmit}/>  
+         </div>
        </div>
     </Content>
   );

@@ -5,7 +5,11 @@
 .edititem h2 {
     font-size: 5m;
     margin-top: 2em;
-    margin-left: 5.3em;
+    text-align: center;
     margin-bottom: 2em;
     color: #666;
+}
+
+.edititem__muokkaa{
+    margin-right: 5em;    
 }

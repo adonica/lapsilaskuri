@@ -1,9 +1,9 @@
 
 .settings h2 {
-    padding-top: 1em; 
-    margin-left: 4em;
-    align-items: center;
+    margin-top: 1.5em;    
+    text-align: center;
     padding: 1em;
+    color: #666;
 }    
 
 .settings__userdata img {
@@ -23,17 +23,12 @@
     align-items: center;
 }
 
-.settings__asetukset {
-    display: flex;
-    flex-direction: column;      
-    align-items: center;
-    padding: 4em;
+.settings__asetukset {             
+    align-items: center;    
 }
 
-.settings__button {
-    margin-right: 9em;
-    padding-top: 0.5em;
-    padding-right: 1em;    
+.settings__button {   
+   margin-left: 7em;       
 }
 
 

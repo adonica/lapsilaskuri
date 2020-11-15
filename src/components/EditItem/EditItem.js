@@ -13,11 +13,11 @@ function EditItem(props) {
   return (
     <Content>
       <div className='edititem'>
-        <h2>Muokkaa nimeä</h2>      
-
-         <ItemForm onFormSubmit={props.onFormSubmit} data={itemData} onDeleteItem={props.onDeleteItem} /> 
-         
-       </div>
+        <h2>Muokkaa nimeä</h2> 
+        <div className='edititem__muokkaa'>
+          <ItemForm onFormSubmit={props.onFormSubmit} data={itemData} onDeleteItem={props.onDeleteItem} />          
+        </div>
+      </div>     
     </Content>
   );
 }

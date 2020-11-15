@@ -12,3 +12,4 @@
 [1101/185613.232:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\tanja\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\342d3db2-4298-47a1-a2cd-2ec01329c940: Määritettyä polkua ei löydy. (0x3)
 [1109/174702.735:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
 [1113/095334.190:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1115/134431.199:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
