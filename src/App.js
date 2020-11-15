@@ -2,7 +2,6 @@ import React, { Component }  from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import firebase, { provider, auth } from'./firebase';
-
 import Header from './components/Header/Header';
 import Items from './components/Items/Items';
 import Menu from './components/Menu/Menu';
@@ -11,7 +10,6 @@ import AddItem from './components/AddItem/AddItem';
 import EditItem from './components/EditItem/EditItem';
 import Content from './components/Content/Content';
 import Button from './components/buttons';
-import Lapsikortti from './components/Lapsikortti/Lapsikortti';
 
 
 class App extends Component {
@@ -20,16 +18,16 @@ class App extends Component {
     this.state = {
       data: [],
       user: null,
-      error: null
-            
-                           
+      error: null                                  
    }
+
    this.dbRef = firebase.firestore();
    this.handleFormSubmit = this.handleFormSubmit.bind(this);
    this.handleDeleteItem = this.handleDeleteItem.bind(this);  
    this.login = this.login.bind(this);  
-   this.logout = this.logout.bind(this);
-  }
+   this.logout = this.logout.bind(this); 
+   this.changeStatus = this.changeStatus.bind(this);       
+  } 
 
   componentDidMount() {
 
@@ -39,6 +37,7 @@ class App extends Component {
         this.setState({
           user: user
         });
+
         this.refData = this.dbRef.collection('users').doc(user.uid).collection('data');     
 
         this.refData.orderBy('nimi').onSnapshot((docs) => {
@@ -49,14 +48,10 @@ class App extends Component {
           });
           this.setState({
             data: data         
-          });
-      
+          });      
        });
       }
-    });
-
-    
-    
+    });    
   }
   
   handleFormSubmit(newdata) {    
@@ -65,7 +60,11 @@ class App extends Component {
 
   handleDeleteItem(id) {    
     this.refData.doc(id).delete().then().catch(error => {console.error('Virhe tietoa poistettaessa:', error)});
-  } 
+  }  
+
+  changeStatus(newdata) {
+    this.refData.doc(newdata.id).set(newdata);
+  }
 
   login() {
     auth.signInWithPopup(provider).then((result) => {      
@@ -87,10 +86,9 @@ class App extends Component {
     auth.signOut().then(() => {
       this.setState({
         user: null
-      });
-      
+      });      
     });
-  }
+  }  
   
   render() {  
     
@@ -115,9 +113,9 @@ class App extends Component {
     return (
       <Router>  
         <div className='App'>
-          <Header data={this.state.data}/>
-          <Route path='/header' render={(props) => <Lapsikortti  color={this.state.color} {...props}/> } />
-          <Route path='/' exact render={() => <Items data={this.state.data}/> } /> 
+          <Header data={this.state.data} /> 
+                                                     {/*Itemsin kautta yritän ohjata tietoa Lapsikortille(joka on tuotu Itemsiin)*/}
+          <Route path='/' exact render={() => <Items data={this.state.data} changeStatus={this.changeStatus} /> } /> 
           <Route path='/settings' render={() => <Settings onLogout={this.logout}
                                                           user={this.state.user} /> } />
           <Route path='/add' render={() => <AddItem onFormSubmit={this.handleFormSubmit}/>} />

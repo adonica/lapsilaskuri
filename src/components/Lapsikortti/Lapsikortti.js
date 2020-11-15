@@ -1,7 +1,5 @@
 import React from 'react';
 
-/*import { withRouter } from "react-router";*/
-
 import ArrowRight from '@material-ui/icons/ArrowRight';
 import { Link } from 'react-router-dom';
 
@@ -9,46 +7,43 @@ import './Lapsikortti.css'
 import Button from '../buttons';
 
 const orange = '#F1C40F';
-const green = '#0ebe0e';
+const green = '#0ebe0e';   
 
-class Lapsikortti extends React.Component {  
+class Lapsikortti extends React.Component { 
     constructor(props) {
       super(props);
 
     this.state = {
-      color: orange
-    };
-    
-    this.changeColor = this.changeColor.bind(this);
-    }    
+      color: orange       
+    };   
+ 
+  this.changeColor = this.changeColor.bind(this);
+  }
 
-    changeColor(event) {  
-      event.preventDefault();   
-      const newColor = this.state.color === orange ? green : orange;           
-      
-      this.setState({
-        color: newColor
-      });
-    }
+  changeColor() {
+    const newColor = this.state.color === orange ? green : orange;      
+    this.setState({
+      color: newColor
+    });
+}  
 
- render() {       
-
+render() {
    return (        
       
-      <div className='lapsikortti' style={{backgroundColor: this.state.color}}> 
+      <div className='lapsikortti' style={{backgroundColor: this.props.data.status?"green":"orange"}} > 
         <div>                                         
-        <Button 
-           onClick={this.changeColor}
+        <Button     
+           onClick={this.props.changeStatus}             
            className='lapsikortti__nappi'>
-            {this.props.data.nimi}
+           {this.props.data.nimi} 
         </Button>            
         </div>         
-        <div className='lapsikortti__linkki'>
+        <div className='lapsikortti__linkki'>  
           <Link to={'/edit/' + this.props.data.id}><ArrowRight /></Link>   
         </div>
       </div> 
    );          
-  }    
-}
+  }
+} 
 
-export default /*withRouter*/Lapsikortti;
+export default Lapsikortti;

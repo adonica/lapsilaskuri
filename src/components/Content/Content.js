@@ -4,7 +4,7 @@ import './Content.css'
 function Content(props) {
     return (
       <div className='content'>
-        {props.children}  {/*kaikki mitä Contentin sisällä on sisältyy tähän*/}
+        {props.children}  
       </div>
     );
 }

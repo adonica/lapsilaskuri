@@ -4,16 +4,17 @@
   margin: 0.5em;
   padding: 2em 0 2em 2em;
   display: flex; 
-  background-color: rgb(248, 174, 36); 
+  background-color: #F1C40F;
   border-radius: 25%;   
 } 
 
 .lapsikortti__nappi {
   font-size: 1.5em;
-  font-family: 'Delius', cursive, sans-serif; 
+  font-family: 'Delius', cursive, sans-serif;  
   padding: 0.3em;
   width: 4.5em; 
-  height: 2.7em;   }
+  height: 2.7em;   
+}
 
 .lapsikortti__linkki {
   display: none;  

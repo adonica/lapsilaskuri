@@ -17,7 +17,7 @@ function Settings(props) {
             <div>{props.user.displayName}<br/>{props.user.email}</div>
           </div> 
           <div>
-            <Button onClick={props.onLogout}>LOGOUT</Button> 
+            <Button onClick={props.onLogout}>KIRJAUDU ULOS</Button> 
           </div>
         </div>
         <div className='settings__asetukset'>

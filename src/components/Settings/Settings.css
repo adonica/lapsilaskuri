@@ -25,14 +25,15 @@
 
 .settings__asetukset {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;      
     align-items: center;
     padding: 4em;
 }
 
 .settings__button {
     margin-right: 9em;
-    padding-top: 0.5em;    
+    padding-top: 0.5em;
+    padding-right: 1em;    
 }
 
 

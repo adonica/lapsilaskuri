@@ -1,5 +1,5 @@
 .header {
-  background-color: rgb(119, 226, 47);  
+  background-color: rgb(119, 226, 47); 
   display: flex; 
   justify-content: center;
   padding: 0.5em;
@@ -16,7 +16,7 @@
 .header__lukema {
   display: flex;
   padding-left: 1em;
-  font-size: 1.7em;
+  font-size: 2em;
   font-weight: bold;
   color: rgb(250, 69, 14);
 
