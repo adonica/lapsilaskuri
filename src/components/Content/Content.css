@@ -1,9 +1,8 @@
-.content {     
-    overflow-y: scroll;    
+.content {   
+    width: 100%;
+    overflow-y: scroll;   
     -webkit-overflow-scrolling: touch; 
-    /*height: calc(100vh - 110px);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);*/
+     position: relative;  
 }
   
 ::-webkit-scrollbar {
@@ -24,5 +23,7 @@
     height: calc(100vh - 110px);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    padding: 1em;
+    position: relative;
 }
   

@@ -1,9 +1,8 @@
 .menu {
     background-color: rgb(222, 238, 78);  
     display: flex;  
-    justify-content: space-evenly;
+    justify-content: space-around;
     max-height: 3em;
     min-height: 3em;
-    align-items: center;  
-    position: relative;
+    align-items: center;      
 }

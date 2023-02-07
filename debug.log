@@ -13,3 +13,6 @@
 [1109/174702.735:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
 [1113/095334.190:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
 [1115/134431.199:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1117/155119.983:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1118/144301.791:ERROR:directory_reader_win.cc(43)] FindFirstFile: Määritettyä polkua ei löydy. (0x3)
+[1118/144301.803:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\tanja\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\840d9eb9-e7ab-4746-958b-b7b7bb621645: Määritettyä polkua ei löydy. (0x3)

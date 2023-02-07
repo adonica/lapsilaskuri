@@ -24,11 +24,12 @@
 }
 
 .settings__asetukset {             
-    align-items: center;    
+    align-items: center;        
 }
 
 .settings__button {   
-   margin-left: 7em;       
+   align-items: center; 
+   /*margin-left: 3em; */  
 }
 
 

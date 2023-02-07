@@ -15,11 +15,11 @@ function Settings(props) {
           <div className='settings__userdata'>
             <div><img src={props.user.photoURL} alt=''/>  </div>
             <div>{props.user.displayName}<br/>{props.user.email}</div>
-          </div> 
-          <div>
+          </div>   
+        </div> 
+          <div className='settings__profilenappi'>
             <Button onClick={props.onLogout}>KIRJAUDU ULOS</Button> 
-          </div>
-        </div>
+          </div>       
         <div className='settings__asetukset'>
           <h2>Asetukset</h2>
             <div className='settings__button'>

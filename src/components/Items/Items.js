@@ -1,5 +1,4 @@
 import React from 'react';
-import './Items.css';
 import Content from '../Content/Content';
 import Lapsikortti from '../Lapsikortti/Lapsikortti';  
 

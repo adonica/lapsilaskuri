@@ -22,16 +22,17 @@
     font-size: 1.2em;
     font-family: 'Delius', cursive, sans-serif;
     outline: none;    
-    margin-left: 4.3em; 
+    /*margin-left: 4.3em; */
+    width: 100%;
 }
 
 .itemform label {
     font-size: 1em;
     margin-bottom: 0.2em;
-    margin-left: 6.4em;
+    /*margin-left: 6.4em;*/
 }
 
-.itemform__buttonper {
+/*.itemform__buttonper {
     padding:0.5em;
     padding-left: 5em;
 }
@@ -43,5 +44,5 @@
 
 .itemform__buttonpoi {
     padding-left: 5em;
-}
+}*/
 
