@@ -1,7 +1,9 @@
 import React, { Component }  from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
-import firebase, { provider, auth } from'./firebase';
+import { auth, provider, db } from './firebase';
+import { signInWithPopup } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import Header from './components/Header/Header';
 import Items from './components/Items/Items';
 import Menu from './components/Menu/Menu';
@@ -10,7 +12,7 @@ import AddItem from './components/AddItem/AddItem';
 import EditItem from './components/EditItem/EditItem';
 import Content from './components/Content/Content';
 import Button from './components/buttons';
-
+import { collection, query, orderBy, onSnapshot, doc, setDoc, deleteDoc } from 'firebase/firestore';
 
 class App extends Component {
   constructor(props) {
@@ -18,80 +20,83 @@ class App extends Component {
     this.state = {
       data: [],
       user: null,
-      error: null                                  
+      error: null
    }
 
-   this.dbRef = firebase.firestore();
-   this.handleFormSubmit = this.handleFormSubmit.bind(this);
-   this.handleDeleteItem = this.handleDeleteItem.bind(this);  
-   this.login = this.login.bind(this);  
-   this.logout = this.logout.bind(this); 
-   this.changeStatus = this.changeStatus.bind(this);       
-  } 
+    // Firestore reference is initialized to empty
+    this.refData = null;
+
+    // Binding functions
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+    this.changeStatus = this.changeStatus.bind(this);
+  }
 
   componentDidMount() {
-
     auth.onAuthStateChanged((user) => {
-
       if (user) {
-        this.setState({
-          user: user
-        });
+        this.setState({ user });
 
-        this.refData = this.dbRef.collection('users').doc(user.uid).collection('data');     
+        // Set a reference to the Firestore collection
+        this.refData = collection(db, 'users', user.uid, 'data');
 
-        this.refData.orderBy('nimi').onSnapshot((docs) => {
-          let data = [];
-          docs.forEach((doc) => {
-            let docdata = doc.data();
-            data.push(docdata);
+        const q = query(this.refData, orderBy('nimi'));
+          onSnapshot(q, (querySnapshot) => {
+          const data = [];
+          querySnapshot.forEach((doc) => {
+            data.push({ id: doc.id, ...doc.data() });
           });
-          this.setState({
-            data: data         
-          });      
-       });
+          this.setState({ data });
+        });
       }
-    });    
-  }
-  
-  handleFormSubmit(newdata) {    
-    this.refData.doc(newdata.id).set(newdata);
+    });
   }
 
-  handleDeleteItem(id) {    
-    this.refData.doc(id).delete().then().catch(error => {console.error('Virhe tietoa poistettaessa:', error)});
-  }  
-
-  changeStatus(newdata) {
-    this.refData.doc(newdata.id).set(newdata);
+  async handleFormSubmit(newdata) {
+    try {
+      const docRef = doc(this.refData, newdata.id);
+      await setDoc(docRef, newdata);
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
   }
 
-  login() {
-    auth.signInWithPopup(provider).then((result) => {      
+  async handleDeleteItem(id) {
+    try {
+      const docRef = doc(this.refData, id);
+      await deleteDoc(docRef);
+    } catch (error) {
+      console.error('Error deleting document:', error);
+    }
+  }
+
+  async changeStatus(newdata) {
+    await this.handleFormSubmit(newdata);
+  }
+
+  async login() {
+    try {
+      const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      this.setState({
-        user: user,
-        error: null
-      });
-    }).catch((error) => {      
-      const errorMessage = error.message;
-      this.setState ({
-        error: errorMessage
-      }); 
-      this.refData = null;    
-    });
+      this.setState({ user, error: null });
+    } catch (error) {
+      this.setState({ error: error.message });
+      this.refData = null;
+    }
   }
 
-  logout() {
-    auth.signOut().then(() => {
-      this.setState({
-        user: null
-      });      
-    });
-  }  
-  
-  render() {  
-    
+  async logout() {
+    try {
+      await signOut(auth);
+      this.setState({ user: null });
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  }
+
+  render() {
     if (!this.state.user) {
       return (
        <Router>
@@ -109,23 +114,23 @@ class App extends Component {
        </Router>
       );
     }
-  
+
     return (
-      <Router>  
+      <Router>
         <div className='App'>
-          <Header data={this.state.data} /> 
+          <Header data={this.state.data} />
                                                      {/*Itemsin kautta yritän ohjata tietoa Lapsikortille(joka on tuotu Itemsiin)*/}
-          <Route path='/' exact render={() => <Items data={this.state.data} changeStatus={this.changeStatus} /> } /> 
+          <Route path='/' exact render={() => <Items data={this.state.data} changeStatus={this.changeStatus} /> } />
           <Route path='/settings' render={() => <Settings onLogout={this.logout}
                                                           user={this.state.user} /> } />
           <Route path='/add' render={() => <AddItem onFormSubmit={this.handleFormSubmit}/>} />
-          <Route path='/edit/:id' render={(props) => <EditItem data={this.state.data} 
+          <Route path='/edit/:id' render={(props) => <EditItem data={this.state.data}
                                                                onFormSubmit={this.handleFormSubmit}
                                                                onDeleteItem={this.handleDeleteItem}
                                                                {...props} />} />
-          <Menu />  
+          <Menu />
         </div>
-      </Router> 
+      </Router>
     );
   }
 }
