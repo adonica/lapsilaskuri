@@ -1,44 +1,74 @@
 .lapsikortti {
-  width: 10em;
-  height: 6em; 
-  margin: 0.5em;
-  padding: 2em 0 2em 2em;
-  display: flex;   
-  border-radius: 25%;   
-} 
+    width: 100%;
+    /* Keeps the card's proportions */
+    aspect-ratio: 3 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    /* Center the card */
+    margin: 0 auto;
+    border-radius: 15%;
+    box-sizing: border-box;
+    /* Anchors the child element(link) in the correct position */
+    position: relative;
+    background-color: orange;
+}
 
 .lapsikortti__nappi {
-  font-size: 1.5em;
-  font-family: 'Delius', cursive, sans-serif;  
-  padding: 0.3em;
-  width: 4.5em; 
-  height: 2.7em;   
+    font-size: 1.2em;
+    padding: 0.5em 0.8em;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #333;
+    /* Size depends on the text */
+    width: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .lapsikortti__linkki {
-  display: none;  
-  justify-content: center; 
-  align-items: center;
-  max-width: 1em;  
-  background-color: rgba(0, 0, 0, 0.1);
-  margin-left: 0.7em;
-}
-
-.lapsikortti > div {
-  flex: 1 1 auto;    
-}
-
-.lapsikortti:hover .lapsikortti__linkki {
-  display: flex;
+    /* Hidden */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* Position on the right edge */
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 1em;
+    height: 5em;
+    border-radius: 25%;
 }
 
 .lapsikortti__linkki a {
-  color: #000;
+    color: #000;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* The link will appear as follows */
+.lapsikortti:hover .lapsikortti__linkki,   /* For pc/mouse users */
+.lapsikortti:focus-within .lapsikortti__linkki,  /* For pc/keyboard users */
+.lapsikortti:active .lapsikortti__linkki {  /* For mobile users */
+    display: flex;
+}
 
+/* For mobile */
+@media screen and (min-width: 320px) and (max-width: 768px) {
+   .lapsikortti {
+        padding: 0.5em;
+        border-radius: 13%;
+    }
 
-
-
-
+    .lapsikortti__nappi {
+        font-size: 1em;
+        padding: 0.4em;
+    }
+}
 

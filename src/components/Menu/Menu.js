@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import ChildCareIcon from '@material-ui/icons/ChildCare';
-import SettingsIcon from '@material-ui/icons/Settings';
+import ChildCareIcon from '@mui/icons-material/ChildCare';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 import './Menu.css';
 
@@ -17,4 +17,4 @@ function Menu(props) {
 }
 
 export default Menu;
-  
+

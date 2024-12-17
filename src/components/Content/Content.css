@@ -1,29 +1,38 @@
-.content {   
-    width: 100%;
-    overflow-y: scroll;   
-    -webkit-overflow-scrolling: touch; 
-     position: relative;  
+.content {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+     position: relative;
 }
-  
+
 ::-webkit-scrollbar {
     width: 0.5em;
 }
-  
+
 ::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.0);
 }
-  
+
 ::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.1)
 }
 
-.content__childlist{     
-    overflow-y: scroll;    
-    -webkit-overflow-scrolling: touch; 
+.content__childlist {
+    /* Removes scrolls */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     height: calc(100vh - 110px);
     display: grid;
+    /* 2 grids */
     grid-template-columns: repeat(2, 1fr);
-    padding: 1em;
-    position: relative;
+    /* Gap between cards */
+    gap: 0.8em;
+    padding: 0.5em;
+    box-sizing: border-box;
 }
-  
+
+/* For mobile */
+@media screen and (max-width: 768px) {
+    .content__childlist {
+        gap: 0.7em;
+    }
+}
