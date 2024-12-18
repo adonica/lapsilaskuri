@@ -26,6 +26,7 @@
     grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
     /* Gap between cards */
     gap: 0.8em;
+    grid-auto-flow: row;
     padding: 0.5em;
     box-sizing: border-box;
 }
