@@ -1,10 +1,10 @@
 
 .settings h2 {
-    margin-top: 1.5em;    
+    margin-top: 1.5em;
     text-align: center;
     padding: 1em;
     color: #666;
-}    
+}
 
 .settings__userdata img {
     width: 75px;
@@ -23,13 +23,22 @@
     align-items: center;
 }
 
-.settings__asetukset {             
-    align-items: center;        
+.settings__asetukset {
+    align-items: center;
 }
 
-.settings__button {   
-   align-items: center; 
-   /*margin-left: 3em; */  
+.settings__button {
+    padding-left: 6.5em;
 }
 
+hr.divider {
+   margin-top: 3em;;
+   border-top: 3px solid #bbb;
+}
 
+/* For mobile */
+@media screen and (min-width: 320px) and (max-width: 768px) {
+   .settings__button {
+    padding-left: 3.3em;
+   }
+}
