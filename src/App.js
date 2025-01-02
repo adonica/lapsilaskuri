@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { auth, provider, db } from './firebase';
 import { signInWithPopup } from 'firebase/auth';
@@ -117,19 +117,21 @@ class App extends Component {
 
     return (
       <Router>
-        <div className='App'>
-          <Header data={this.state.data} />
-                                                     {/*Itemsin kautta yritän ohjata tietoa Lapsikortille(joka on tuotu Itemsiin)*/}
-          <Route path='/' exact render={() => <Items data={this.state.data} changeStatus={this.changeStatus} /> } />
-          <Route path='/settings' render={() => <Settings onLogout={this.logout}
-                                                          user={this.state.user} /> } />
-          <Route path='/add' render={() => <AddItem onFormSubmit={this.handleFormSubmit}/>} />
-          <Route path='/edit/:id' render={(props) => <EditItem data={this.state.data}
-                                                               onFormSubmit={this.handleFormSubmit}
-                                                               onDeleteItem={this.handleDeleteItem}
-                                                               {...props} />} />
-          <Menu />
-        </div>
+        <Switch>
+            <div className='App'>
+              <Header data={this.state.data} />
+                                                          {/*Itemsin kautta yritän ohjata tietoa Lapsikortille(joka on tuotu Itemsiin)*/}
+              <Route path='/' exact render={() => <Items data={this.state.data} changeStatus={this.changeStatus} /> } />
+              <Route path='/settings' render={() => <Settings onLogout={this.logout}
+                                                              user={this.state.user} /> } />
+              <Route path='/add' render={() => <AddItem onFormSubmit={this.handleFormSubmit}/>} />
+              <Route path='/edit/:id' render={(props) => <EditItem data={this.state.data}
+                                                                    onFormSubmit={this.handleFormSubmit}
+                                                                    onDeleteItem={this.handleDeleteItem}
+                                                                    {...props} />} />
+              <Menu />
+            </div>
+        </Switch>
       </Router>
     );
   }
