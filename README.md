@@ -20,13 +20,30 @@ Built with
   * HTML, CSS, JavaScript(frontend)
   * Cloud Firestore(backend database)
 
-## Installation
+## Getting Started
 
+To run this project, you need to provide your Firebase configuration details. Follow these steps:
+
+1. Rename the `.env.example` file to `.env`.
+
+2. Add your Firebase configuration values to the .env file:
+```
+REACT_APP_FIREBASE_API_KEY="your-api-key"
+REACT_APP_FIREBASE_AUTH_DOMAIN="your-auth-domain"
+REACT_APP_FIREBASE_URL="your-project-url"
+REACT_APP_FIREBASE_PROJECT_ID="your-project-id"
+REACT_APP_FIREBASE_STORAGE_BUCKET="your-storage-bucket"
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID="your-sender-id"
+REACT_APP_FIREBASE_APP_ID="your-app-id"
+```
+3. Install dependencies and start the project.
 In the root folder of project directory:
+```
+yarn install
+yarn start
+```
 
-### `yarn start`
-
-Runs the app in the development mode.<br />
+It runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
