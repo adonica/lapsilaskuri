@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { auth, provider, db } from './firebase';
+import { auth, provider, db } from './firebaseConfig';
 import { signInWithPopup } from 'firebase/auth';
 import { signOut } from 'firebase/auth';
 import Header from './components/Header/Header';
